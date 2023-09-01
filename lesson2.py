@@ -1,41 +1,33 @@
-# # умови
-# # v1
-# n1 = 10 + 20 * 2 # оператор привласнення "=" відпрацьовує останнім
-# n2 = 20
-#
-# # v2
-# n1, n2 = 10, 20 #множинне привласнення
-# n1 == n2 #перше дірівнює другому
-# n1 != n2 #перше НЕ дорівнює другому
-#
-# # v3
-#
-# is_valid = True
-# print(is_valid)
-# print(not is_valid)
-#
-# print('hello' in 'hello word')
+n1 = int(input('Input first number: '))
+n2 = int(input('Input second number: '))
+n3 = int(input('Input third number: '))
 
-# # v1
-# hours = int(input('Enter hours: '))
-# if hours >= 12 and >= 1 and <= 24:
-#     print('PM')
-# else:
-#     print('AM')
+value = input('Select choice: "MIN", "MAX", "MID_SUM": ')
 
-# hours = int(input('Enter hours: '))
-# if hours >= 12 and hours <= 24:
-#     print('PM')
-# elif hours >= 1 and hours <= 12:
-#     print('AM')
-# else:
-#     print('Incorrect hours')
-#
-film_rating = int(input('Input film_rating: '))
-if 0 < film_rating <= 5:
-    if film_rating == 4 or film_rating ==5:
-        print('OK')
-    else:
-        print('not OK')
-else:
-    print('Incorrect rating')
+#MIN
+if value == "MIN":
+    if n1 < n2 and n1 < n3:
+        print('MIN = ', n1)
+    elif n2 < n1 and n2 < n3:
+        print('MIN = ', n2)
+    elif n3 < n1 and n3 < n2:
+        print('MIN = ', n3)
+# elif value != "MAX" and value != "MIN" and value != "MID_SUM":
+#     print('Input integer number!')
+
+#MAX
+    if value == "MAX":
+        if n1 > n2 and n1 > n3:
+            print('MAX = ', n1)
+        elif n2 > n1 and n2 > n3:
+            print('MAX = ',n2)
+        elif n3 > n1 and n3 > n2:
+            print('MAX = ',n3)
+# elif value != "MAX" and value != "MIN" and value != "MID_SUM":
+#     print('Input integer number!')
+
+#MID_SUM
+if value == "MID_SUM":
+    print('MID_SUM = ', ((n1 + n2 + n3)/3))
+elif value != "MAX" and value != "MIN" and value != "MID_SUM":
+    print('Input correct amounts!')
