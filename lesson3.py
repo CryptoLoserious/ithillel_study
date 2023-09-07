@@ -15,4 +15,4 @@
 #     print('Enter only integer number please!')
 #     print(f'ValueError')
 
-print('Merge conflict example')
+print('Merge conflict example!')
