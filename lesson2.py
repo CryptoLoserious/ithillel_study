@@ -46,3 +46,8 @@
 #     print(d1, '.m =', d1*0.00062137, 'mile(s)')
 # else:
 #     print('Input correct amounts!')
+print('Hello')
+
+print('Any text')
+
+print('Some text')
