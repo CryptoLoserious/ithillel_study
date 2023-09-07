@@ -48,3 +48,4 @@
 #     print('Input correct amounts!')
 
 print('Merge conflict example!')
+print('Merge conflict example2!')
