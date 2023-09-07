@@ -47,8 +47,8 @@
 # else:
 #     print('Input correct amounts!')
 
-print('Hello')
+print('Hello!')
 
-print('Some text')
+print('Some text!')
 
-print('More text')
+print('More text!')
