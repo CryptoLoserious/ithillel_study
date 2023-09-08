@@ -109,65 +109,65 @@
 #     print(f'count: {count}')
 # except Exception as e:
 #     print(e)
-######################### HOMEWORK #########################
-# #lesson1
-# while True:
-#         try:
-#             print('Choose a day of the week: \n1. First day\n2. Second day\n3. Third day\n4. Fourth day \n5. Fifth day\n6. Sixth day\n7. Seventh day')
-#             user_select = int(input('Enter a day of the week: '))
-#
-#             match user_select:
-#                 case 1:
-#                     print('First day is Monday')
-#                     break
-#                 case 2:
-#                     print('Second day is Tuesday')
-#                     break
-#                 case 3:
-#                     print('Third day is Wednesday')
-#                     break
-#                 case 4:
-#                     print('Fourth day is Thursday')
-#                     break
-#                 case 5:
-#                     print('Fifth day is Friday')
-#                     break
-#                 case 6:
-#                     print('Sixth day is Saturday')
-#                     break
-#                 case 7:
-#                     print('Seventh day is Sunday')
-#                     break
-#                 case _:
-#                     print('Incorrect a day of the week. Repeat your choice!')
-#         except ValueError as e:
-#                 print('Enter numbers only. Repeat your choice!')
+############################################### HOMEWORK ###################################################
+#lesson1
+while True:
+        try:
+            print('Choose a day of the week: \n1. First day\n2. Second day\n3. Third day\n4. Fourth day \n5. Fifth day\n6. Sixth day\n7. Seventh day')
+            user_select = int(input('Enter a day of the week: '))
 
-# #lesson2
-# try:
-#     while True:
-#         try:
-#             print('Enter two numbers. ')
-#             num1 = int(input('Enter first number: '))
-#             num2 = int(input('Enter second number: '))
-#             if num1 == num2:
-#                 print('Good, your numbers are equal')
-#                 break
-#             if num1 >= num2:
-#                 print(num2, num1)
-#                 break
-#             if num1 <= num2:
-#                 print(num1, num2)
-#                 break
-#         except ValueError as e:
-#             print('Enter numbers only! Repeat the input.')
-#             continue
-# except ValueError as error:
-#     print('Enter only integer number please!')
-#     print(f'ValueError')
-# except Exception as error:
-#     print(f'Exception occurred: {error}')
-# print('End of the calculation =)')
+            match user_select:
+                case 1:
+                    print('First day is Monday')
+                    break
+                case 2:
+                    print('Second day is Tuesday')
+                    break
+                case 3:
+                    print('Third day is Wednesday')
+                    break
+                case 4:
+                    print('Fourth day is Thursday')
+                    break
+                case 5:
+                    print('Fifth day is Friday')
+                    break
+                case 6:
+                    print('Sixth day is Saturday')
+                    break
+                case 7:
+                    print('Seventh day is Sunday')
+                    break
+                case _:
+                    print('Incorrect a day of the week. Repeat your choice!')
+        except ValueError as e:
+                print('Enter numbers only. Repeat your choice!')
+
+#lesson2
+try:
+    while True:
+        try:
+            print('Enter two numbers. ')
+            num1 = int(input('Enter first number: '))
+            num2 = int(input('Enter second number: '))
+            if num1 == num2:
+                print('Good, your numbers are equal')
+                break
+            if num1 >= num2:
+                print(num2, num1)
+                break
+            if num1 <= num2:
+                print(num1, num2)
+                break
+        except ValueError as e:
+            print('Enter numbers only! Repeat the input.')
+            continue
+except ValueError as error:
+    print('Enter only integer number please!')
+    print(f'ValueError')
+except Exception as error:
+    print(f'Exception occurred: {error}')
+print('End of the calculation =)')
 
 # lesson3
 user_select = 0
