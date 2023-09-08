@@ -170,7 +170,6 @@ except Exception as error:
 print('End of the calculation =)')
 
 # lesson3
-user_select = 0
 try:
     while True:
         try:
