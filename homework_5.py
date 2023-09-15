@@ -1,5 +1,5 @@
 import random
-numbers = [2, -5, 1, 6, 8, -7, 4, 0, 5, -2]
+###numbers = [2, -5, 1, 6, 8, -7, 4, 0, 5, -2] - створено для перевірки коду при помилках
 
 #task_5.1:
 NUMS_SIZE = 12
@@ -52,17 +52,20 @@ print('Multiply between min and max: ', multiply)
 first_pos_index = None
 last_pos_index = None
 
-for i1 in range(len(numbers)):
-    if numbers[i1] > 0:
-        first_pos_index = i1
+for i in range(len(numbers)):
+    if numbers[i] > 0:
+        first_pos_index = i
         break
 
-for i2 in range(len(numbers)-1, -1, -1):
-    if numbers[i2] > 0:
-        last_pos_index = i2
+for i in range(len(numbers)-1, -1, -1):
+    if numbers[i] > 0:
+        last_pos_index = i
         break
 
-sum_middle_num = sum(numbers[first_pos_index + 1:last_pos_index])
+sum_middle_num = 0
+for i in range(first_pos_index+1, last_pos_index):
+        sum_middle_num += numbers[i]
+
 print('Sum of first and last positive nums: ', sum_middle_num)
 
 # task_5.2:
@@ -114,4 +117,4 @@ print('List with positive num: ', positive_list)
 
 """                                       Additional task                                """
 
-#
+
