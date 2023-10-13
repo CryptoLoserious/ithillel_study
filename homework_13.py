@@ -36,6 +36,8 @@ class Academy:
                 self.__location = set_location
                 return
             raise ValueError(f"Invalid value '{key}: {value}")
+    def show_info(self):
+        print(f"Name: {self.__name} \nLocation: {self.__location} \nAccreditation: {self.__accreditation}")
 
 class Building(Academy):
     __floors = None
@@ -55,6 +57,10 @@ class Building(Academy):
     @property
     def bathrooms(self):
         return self.__bathrooms
+
+    def show_info(self):
+        print(f"Name: {self.__name} \nLocation: {self.__location} \nfloors: {self.__floors} \nclass_rooms: {self.__class_rooms}"
+              f"\nbathrooms: {self.__bathrooms}")
 
 class Person(Academy):
     age = None
@@ -83,6 +89,9 @@ class Person(Academy):
         else:
             raise Exception("Provide valid id number (from 6 to 10 characters)!")
 
+    def show_info(self):
+        print(f"Name: {self.__name} \nage: {self.__age} \nid_number: {self.__id_number}")
+
 class Teachers(Person):
     # sub_of_teach = None
     # teach_exp = None
@@ -99,6 +108,10 @@ class Teachers(Person):
 
     def __secret_info(self):
         print(f"Secret code: {self.__secret_rating_teach}")
+
+    def show_info(self):
+        print(f"Name: {self.__name} \nage: {self.__age} \nid_number: {self.__id_number} \nsub_of_teach: {self.sub_of_teach}"
+              f"\nteach_exp: {self.teach_exp}")
 
 class Students(Person):
     __secret_rating_learn = int(0 - 9)
@@ -119,8 +132,9 @@ class Students(Person):
 academy = Academy("National Academy", {'country': 'Ukraine', 'city': 'Kyiv', 'street': 'Khreshatik',
                                        'phone_num': '+38(044)1234567'}, "level 4")
 academy.show_info()
-Main_building = Building("Main building", {'country': 'Ukraine', 'city': 'Kyiv', 'street': 'Khreshatik'},
-                    "5", "43", "12")
+# Main_building = Building("Main building", {'country': 'Ukraine', 'city': 'Kyiv', 'street': 'Khreshatik'},
+#                     "5", "43", "12")
 
 
 vasia = Students("Vasilii", 23, "432345", "Geology", "433")
+vasia.show_info()
