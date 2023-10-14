@@ -48,7 +48,7 @@ class Building(Academy):
         return self.__bathrooms
     def show_info(self):
         super().show_info()
-        print(f"Floors: {self.__floors} \nClass rooms: {self.__class_rooms} \nBathrooms: {self.__bathrooms} \n")
+        print(f"Floors: {self.__floors} \nClass rooms: {self.__class_rooms} \nBathrooms: {self.__bathrooms}")
 
 class Person:
     def __init__(self, name, who_is, age, id_number):
@@ -102,7 +102,7 @@ class Teachers(Person):
     def show_info(self):
         super().show_info()
         print(f"Sub_of_teach: {self.sub_of_teach} \nTeach expierence: {self.teach_exp} "
-              f"\nSecret rating teacher: {self.__secret_rating_teach} \n")
+              f"\nSecret rating teacher: {self.__secret_rating_teach}")
 
 
 class Students(Person):
@@ -118,7 +118,7 @@ class Students(Person):
 
     def show_info(self):
         super().show_info()
-        print(f"Faculty: {self.faculty} \ngroup_num: {self.group_num} \n")
+        print(f"Faculty: {self.faculty} \nGroup number: {self.group_num}")
 
 
 academy = Academy("National Academy", {'country': 'Ukraine', 'city': 'Kyiv', 'street': 'Khreshatik',
