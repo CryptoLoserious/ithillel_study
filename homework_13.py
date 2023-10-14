@@ -84,7 +84,6 @@ class Person:
         print(f"\nPerson name: {self.name} \nIs a: {self.who_is} \nAge: {self.age} \nId_number: {self.__id_number}")
 
 class Teachers(Person):
-    __secret_rating_teach = int(0-9)
     def __init__(self, name, who_is, age, id_number, sub_of_teach, teach_exp):
         super().__init__(name, who_is, age, id_number)
         self.sub_of_teach = sub_of_teach
@@ -94,10 +93,6 @@ class Teachers(Person):
         return self.sub_of_teach
     def teach_exp(self):
         return self.teach_exp
-
-    def _secret_info(self):
-        # __secret_rating_teach = int(input("Enter rating of this teacher: "))
-        print(f"Secret code: {self.__secret_rating_teach}")
 
     def show_info(self):
         super().show_info()
