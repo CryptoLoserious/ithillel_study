@@ -5,14 +5,6 @@ Academy - Building - (Floors - Teachers rooms - Class rooms - bath rooms)  - Per
  Subjects (main subjects - hobbies - sports hobbies) """
 
 class Academy:
-    __name = None
-    __accreditation = None
-    __location = {
-        'country': None,
-        'city': None,
-        'street': None,
-        'phone_num': None,
-    }
     def __init__(self, name, location, accreditation):
         self.__name = name
         self.__accreditation = accreditation
@@ -37,14 +29,11 @@ class Academy:
                 return
             raise ValueError(f"Invalid value '{key}: {value}")
     def show_info(self):
-        print(f"Name: {self.__name} \nLocation: {self.__location} \nAccreditation: {self.__accreditation}")
+        print(f"\nName: {self.__name} \nLocation: {self.__location} \nAccreditation: {self.__accreditation}")
 
 class Building(Academy):
-    __floors = None
-    __class_rooms = None
-    __bathrooms = None
     def __init__(self, name, location, floors, class_rooms, bathrooms):
-        super().__init__(name, location)
+        super().__init__(name, location, None)
         self.__floors = floors
         self.__class_rooms = class_rooms
         self.__bathrooms = bathrooms
@@ -57,31 +46,33 @@ class Building(Academy):
     @property
     def bathrooms(self):
         return self.__bathrooms
-
     def show_info(self):
-        print(f"Name: {self.__name} \nLocation: {self.__location} \nfloors: {self.__floors} \nclass_rooms: {self.__class_rooms}"
-              f"\nbathrooms: {self.__bathrooms}")
+        super().show_info()
+        print(f"Floors: {self.__floors} \nClass rooms: {self.__class_rooms} \nBathrooms: {self.__bathrooms} \n")
 
-class Person(Academy):
-    age = None
-    __id_number = None
-    def __init__(self, name, age, id_number):
-        super().__init__(name)
-        self.__age = age
+class Person:
+    def __init__(self, name, who_is, age, id_number):
+        self.name = name
+        self.who_is = who_is
+        self.age = age
         self.__id_number = id_number
-    @property
-    def age(self):
-        return self.__age
-    @age.setter
+
+    def name(self, username):
+        if 2 < len(username) < 30:
+            self.name = username
+        else:
+            print("Incorrect name!")
+
+    def who_is(self):
+        return self.who_is
     def age(self, age):
         if 17 < age < 150:
-            self.__age = age
+            self.age = age
         else:
             print("Incorrect age!")
     @property
     def id_number(self):
         return self.__id_number
-
     @id_number.setter
     def id_number(self, id_number):
         if 6 <= id_number <= 10:
@@ -90,14 +81,12 @@ class Person(Academy):
             raise Exception("Provide valid id number (from 6 to 10 characters)!")
 
     def show_info(self):
-        print(f"Name: {self.__name} \nage: {self.__age} \nid_number: {self.__id_number}")
+        print(f"\nPerson name: {self.name} \nIs a: {self.who_is} \nAge: {self.age} \nId_number: {self.__id_number}")
 
 class Teachers(Person):
-    # sub_of_teach = None
-    # teach_exp = None
     __secret_rating_teach = int(0-9)
-    def __init__(self, name, age, id_number, sub_of_teach, teach_exp):
-        super().__init__(name, age, id_number)
+    def __init__(self, name, who_is, age, id_number, sub_of_teach, teach_exp):
+        super().__init__(name, who_is, age, id_number)
         self.sub_of_teach = sub_of_teach
         self.teach_exp = teach_exp
 
@@ -106,17 +95,19 @@ class Teachers(Person):
     def teach_exp(self):
         return self.teach_exp
 
-    def __secret_info(self):
+    def _secret_info(self):
+        # __secret_rating_teach = int(input("Enter rating of this teacher: "))
         print(f"Secret code: {self.__secret_rating_teach}")
 
     def show_info(self):
-        print(f"Name: {self.__name} \nage: {self.__age} \nid_number: {self.__id_number} \nsub_of_teach: {self.sub_of_teach}"
-              f"\nteach_exp: {self.teach_exp}")
+        super().show_info()
+        print(f"Sub_of_teach: {self.sub_of_teach} \nTeach expierence: {self.teach_exp} "
+              f"\nSecret rating teacher: {self.__secret_rating_teach} \n")
+
 
 class Students(Person):
-    __secret_rating_learn = int(0 - 9)
-    def __init__(self, name, age, id_number, faculty, group_num):
-        super().__init__(name, age, id_number)
+    def __init__(self, name, who_is, age, id_number, faculty, group_num):
+        super().__init__(name, who_is, age, id_number)
         self.faculty = faculty
         self.group_num = group_num
 
@@ -126,15 +117,17 @@ class Students(Person):
         return self.group_num
 
     def show_info(self):
-        print(f"Name: {self.__name} \nLocation: {self.__location} \nAccreditation: {self.__accreditation}")
+        super().show_info()
+        print(f"Faculty: {self.faculty} \ngroup_num: {self.group_num} \n")
 
 
 academy = Academy("National Academy", {'country': 'Ukraine', 'city': 'Kyiv', 'street': 'Khreshatik',
                                        'phone_num': '+38(044)1234567'}, "level 4")
 academy.show_info()
-# Main_building = Building("Main building", {'country': 'Ukraine', 'city': 'Kyiv', 'street': 'Khreshatik'},
-#                     "5", "43", "12")
 
+Main_building = Building("Main building", {'country': 'Ukraine', 'city': 'Kyiv', 'street': 'Khreshatik'},
+                    "5", "43", "12")
+Main_building.show_info()
 
-vasia = Students("Vasilii", 23, "432345", "Geology", "433")
+vasia = Students("Vasilii", "Student", "23", "2865422", "Geology", 432)
 vasia.show_info()
