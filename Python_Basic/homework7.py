@@ -29,15 +29,21 @@
 # print('The minimum value in the list: ', result)
 
 # # # task3
+"""Завдання 3
 
+Напишіть функцію, яка визначає кількість простих чисел у списку цілих. Список передається як параметр.
+Отриманий результат повертається із функції."""
+def simple(numbers):
+    sum_num_in_list = 0
+    for i in numbers:
+        if i >= 2 and i % i == 0 and i % 1 == 0:
+            sum_num_in_list += 1
+    return sum_num_in_list
 
-
-
-
-
-
-
-
+my_numbers = [j for j in range(1, 11)]
+print(my_numbers)
+result = simple(my_numbers)
+print('The sum numbers of primes is: ', result)
 #
 # # task4
 # def deliete(numbers: list) -> int:
