@@ -19,3 +19,4 @@ if __name__ == '__main__':
     assert parse_cookie('') == {}
     assert parse_cookie('name=John;age=28;') == {'name': 'John', 'age': '28'}
     assert parse_cookie('name=John=User;age=28;') == {'name': 'John=User', 'age': '28'}
+lkk
