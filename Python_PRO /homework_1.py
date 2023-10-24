@@ -1,5 +1,17 @@
 def parse(query: str) -> dict:
-    return {}
+    if '?' in query:
+        first_split = query.split('?')[1]
+        second_split = first_split.split('&')
+        final_dict = {}
+
+        for parametr in second_split:
+            if '=' in parametr:
+                key, value = parametr.split('=')
+                final_dict[key] = value
+        return final_dict
+
+    else:
+        return {}
 
 
 if __name__ == '__main__':
@@ -11,7 +23,17 @@ if __name__ == '__main__':
 
 
 def parse_cookie(query: str) -> dict:
-    return {}
+    if ';' in query:
+        first_split = query.split(';')
+        final_dict = {}
+
+        for parametr in first_split:
+            if '=' in parametr:
+                key, value = parametr.split('=', 1)
+                final_dict[key] = value
+        return final_dict
+    else:
+        return {}
 
 
 if __name__ == '__main__':
@@ -19,4 +41,3 @@ if __name__ == '__main__':
     assert parse_cookie('') == {}
     assert parse_cookie('name=John;age=28;') == {'name': 'John', 'age': '28'}
     assert parse_cookie('name=John=User;age=28;') == {'name': 'John=User', 'age': '28'}
-lkk
