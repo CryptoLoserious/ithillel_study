@@ -1,3 +1,4 @@
+# # # v_1
 def parse(query: str) -> dict:
     if '?' in query:
         first_split = query.split('?')[1]
@@ -12,6 +13,17 @@ def parse(query: str) -> dict:
 
     else:
         return {}
+
+
+# # # v_2
+
+from urllib.parse import parse_qs, urlparse
+# def parse(query: str) -> dict:
+#     parsed_url = urlparse(query)
+#     raw_dict = parse_qs(parsed_url.query)
+#
+#     final_dict = {key: values[0] for key, values in raw_dict.items()}
+#     return final_dict
 
 
 if __name__ == '__main__':
