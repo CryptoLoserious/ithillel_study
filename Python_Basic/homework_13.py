@@ -127,3 +127,30 @@
 #
 # vasia = Students("Vasilii", "Student", "23", "2865422", "Geology", 432)
 # vasia.show_info()
+
+
+
+def parse(url: str) -> dict:
+    if '?' in url:
+        first_split = url.split('?')[1]
+        second_split = first_split.split('&')
+        final_dict = {}
+
+        for parametr in second_split:
+            if '=' in parametr:
+                key, value = parametr.split('=')
+                final_dict[key] = value
+        return final_dict
+    else:
+        return {}
+
+
+
+
+if __name__ == '__main__':
+    assert parse('https://example.com/path/to/page?name=ferret&color=purple') == {'name': 'ferret', 'color': 'purple'}
+    assert parse('https://example.com/path/to/page?name=ferret&color=purple&') == {'name': 'ferret', 'color': 'purple'}
+
+    assert parse('http://example.com/') == {}
+    assert parse('http://example.com/?') == {}
+    assert parse('http://example.com/?name=John') == {'name': 'John'}
