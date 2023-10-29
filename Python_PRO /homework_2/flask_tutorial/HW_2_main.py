@@ -35,7 +35,7 @@ def generate() -> dict:
 @app.route("/space")
 def find_amount_of_cosmonauts() -> str:
     result = finder()
-    return str(f"The number of astronauts at the moment: {result} ")
+    return str(f"The number of astronauts at the moment: {result}")
 
 
 

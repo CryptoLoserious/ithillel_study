@@ -13,7 +13,7 @@ def generate_password(length: int = 10) -> str:
     return result
 
 def open_file() -> str:
-    with open('requirements.txt', 'r' ) as file:
+    with open('requirements.txt', 'r') as file:
         content = file.read()
     return content
 
