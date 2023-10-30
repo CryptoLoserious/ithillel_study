@@ -29,8 +29,18 @@ def open_files() -> str:
 
 @app.route("/generate-users")
 def generate() -> dict:
-    final_dict = generator()
-    return final_dict
+    amount = request.args.get('amount', '5')
+
+    if amount.isdigit():
+        amount = int(amount)
+        MIN_AMOUNT = 5
+        MAX_AMOUNT = 100
+
+        if MIN_AMOUNT > amount > MAX_AMOUNT:
+            return f"Amount should be less than {MAX_AMOUNT} and more than {MIN_AMOUNT}"
+        return generator(amount)
+
+    return f"Invalid values: {amount}, please enter valid int amount!"
 
 @app.route("/space")
 def find_amount_of_cosmonauts() -> str:
@@ -42,6 +52,8 @@ def find_amount_of_cosmonauts() -> str:
 
 if __name__=='__main__':
     app.run(host='0.0.0.0', port=5001)
+
+
 
 
 
