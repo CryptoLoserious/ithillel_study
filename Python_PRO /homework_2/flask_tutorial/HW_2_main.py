@@ -28,16 +28,16 @@ def open_files() -> str:
     return contents
 
 @app.route("/generate-users")
-def generate() -> dict:
+def generate() -> str:
     amount = request.args.get('amount', '5')
 
     if amount.isdigit():
         amount = int(amount)
-        MIN_AMOUNT = 5
+        # MIN_AMOUNT = 5
         MAX_AMOUNT = 100
 
-        if MIN_AMOUNT > amount > MAX_AMOUNT:
-            return f"Amount should be less than {MAX_AMOUNT} and more than {MIN_AMOUNT}"
+        if amount > MAX_AMOUNT:
+            return f"Amount should be less than {MAX_AMOUNT} "
         return generator(amount)
 
     return f"Invalid values: {amount}, please enter valid int amount!"
