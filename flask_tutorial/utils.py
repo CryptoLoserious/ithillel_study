@@ -17,13 +17,13 @@ def open_file() -> str:
         content = file.read()
     return content
 
-def generator() -> dict:
+def generator(amount: int = 5) -> dict:
     fake = Faker()
     Faker.seed(0)
     generated_data = ''
     final_dict = {}
 
-    for _ in range(100):
+    for _ in range(amount):
         name = fake.name()
         email = fake.ascii_email()
         generated_data += "f{name}: {email}: \n"

@@ -14,6 +14,7 @@ def password():
 
     if length.isdigit():
         length = int(length)
+
         MAX_PASS_VALUE = 100
 
         if length > MAX_PASS_VALUE:
@@ -28,16 +29,16 @@ def open_files() -> str:
     return contents
 
 @app.route("/generate-users")
-def generate() -> str:
+def generate():
     amount = request.args.get('amount', '5')
 
     if amount.isdigit():
         amount = int(amount)
-        # MIN_AMOUNT = 5
+        MIN_AMOUNT = 5
         MAX_AMOUNT = 100
 
-        if amount > MAX_AMOUNT:
-            return f"Amount should be less than {MAX_AMOUNT} "
+        if amount > MAX_AMOUNT or amount < MIN_AMOUNT:
+            return f"Amount should be less than {MAX_AMOUNT} and {MIN_AMOUNT}"
         return generator(amount)
 
     return f"Invalid values: {amount}, please enter valid int amount!"
