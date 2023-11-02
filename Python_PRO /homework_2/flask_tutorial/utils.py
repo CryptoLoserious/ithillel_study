@@ -41,3 +41,14 @@ def finder() -> str:
     data = request.json()
     number_value = data["number"]
     return number_value
+
+def commit_sql(sql: str):
+    import sqlite3
+
+    try:
+        con = sqlite3.connect('HW_3.db')
+        cur = con.cursor()
+        cur.execute(sql)
+        con.commit()
+    finally:
+        con.close()
