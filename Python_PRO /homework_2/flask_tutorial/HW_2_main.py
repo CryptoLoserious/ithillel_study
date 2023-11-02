@@ -52,7 +52,7 @@ app = Flask(__name__)
 
 """  _____________________________________________homework_3___________________________________________"""
 
-@app.route("/phones/create")
+@app.route("/phone/create")
 def phones_create():
     phone_value = request.args.get('phone', '0')
 
@@ -64,14 +64,14 @@ def phones_create():
 
     return 'phones_create'
 
-@app.route("/phones/read")
+@app.route("/phone/read")
 def phones_read():
     import sqlite3
     con = sqlite3.connect('HW_3.db')
     cur = con.cursor()
 
     sql = """
-    SELECT FROM * Phones;  
+    SELECT * FROM Phones;  
     """
     cur.execute(sql)
 
@@ -79,7 +79,7 @@ def phones_read():
     con.close()
     return result
 
-@app.route("/phones/update")
+@app.route("/phone/update")
 def phones_update():
     phone_value = request.args['phone']
     phone_id = request.args['id']
@@ -91,9 +91,9 @@ def phones_update():
     """
     commit_sql(sql)
 
-    return "phones update"
+    return "phones_update"
 
-@app.route("/phones/delete")
+@app.route("/phone/delete")
 def phones_delete():
     phone_id = request.args['id']
 
