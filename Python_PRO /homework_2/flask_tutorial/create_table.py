@@ -1,4 +1,6 @@
-def create_table() -> None:
+
+
+def create_table():
     import sqlite3
     con = sqlite3.connect('HW_3.db')
     cur = con.cursor()
@@ -13,4 +15,3 @@ def create_table() -> None:
 
     con.commit()
     con.close()
-

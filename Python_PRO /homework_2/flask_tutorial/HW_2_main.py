@@ -1,5 +1,6 @@
 from utils import generate_password, open_file, generator, finder, commit_sql
 from flask import Flask, request
+from create_table import create_table
 
 app = Flask(__name__)
 
@@ -57,7 +58,7 @@ def phones_create():
     phone_value = request.args.get('phone', '0')
 
     sql = f"""
-    INSERT INTO Phones (Phone)
+    INSERT INTO Phones (PhoneValue)
     VALUES ({phone_value});
     """
     commit_sql(sql)
@@ -86,7 +87,7 @@ def phones_update():
 
     sql = f"""
     UPDATE Phones
-    SET Phone = '{phone_value}'
+    SET PhoneValue = '{phone_value}'
     WHERE PhoneID = {phone_id};
     """
     commit_sql(sql)
@@ -110,6 +111,7 @@ def phones_delete():
 
 
 if __name__=='__main__':
+    create_table()
     app.run(host='0.0.0.0', port=5001)
 
 
